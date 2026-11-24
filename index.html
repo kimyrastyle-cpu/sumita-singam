@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sumita J. Singam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm, personal, quietly luxurious; first person, a little playful
+   IDEA: a tea tin label and a well-travelled tea passport
+   PICTURE: her portrait in a sage arch beside a steaming cup
+   COLOUR and TYPE: espresso brown, sage, warm white, one gold accent; Fraunces + Manrope
+   LAYOUT: one long scroll — hero, what I built, where my tea comes from, timeline, favourites, press, contact */
+:root{color-scheme:light dark;
+--bg:light-dark(#fbf8f2,#1d1611);--ink:light-dark(#2e211a,#f3ece1);--soft:light-dark(#6d5d52,#c7b8a8);
+--brown:light-dark(#4a3326,#2a1f18);--sage:light-dark(#9aa883,#7d8c68);--sagebg:light-dark(#e6ead9,#26291f);
+--gold:light-dark(#a87b2e,#d9ad5c);--card:light-dark(#fff,#261d17);--line:light-dark(#e7ddd0,#3a2e25)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 Manrope,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(30px,4vw,44px)}h3{font-size:21px}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding:clamp(48px,7vw,104px) max(5vw,18px)}
+.lede{color:var(--soft);max-width:60ch;margin:14px 0 0}
+/* nav */
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:20px;padding:12px max(5vw,18px);max-width:1280px;margin:0 auto}
+.mono{font-family:Fraunces,serif;font-size:20px;font-weight:600;text-decoration:none;display:flex;gap:10px;align-items:center}
+.mono span{width:36px;height:36px;border-radius:50%;background:var(--brown);color:#f3ece1;display:grid;place-items:center;font-size:14px}
+.links{display:flex;gap:18px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.links a{text-decoration:none;font-size:14.5px;white-space:nowrap;color:var(--soft);padding:10px 0}
+.links a:hover{color:var(--ink)}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,5vw,72px);align-items:center}
+.where{display:inline-flex;gap:8px;align-items:center;font-size:14px;color:var(--soft);margin-bottom:18px}
+.where i{width:8px;height:8px;border-radius:50%;background:var(--sage)}
+.hero h1{font-size:clamp(44px,7vw,84px);letter-spacing:-.01em}
+.hero h1 em{font-style:italic;font-weight:400}
+.hero p.big{font-size:clamp(18px,2vw,21px);max-width:34ch;margin:20px 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px}
+.btn.p{background:var(--brown);color:#f6efe3}.btn.s{border:1.5px solid var(--ink)}
+:root:not([data-theme=light]) .btn.p{background:light-dark(#4a3326,#9aa883);color:light-dark(#f6efe3,#1d1611)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.stage{position:relative;aspect-ratio:4/4.4;max-height:620px}
+.arch{position:absolute;inset:0 12% 0 6%;border-radius:999px 999px 26px 26px;background:var(--sage);overflow:hidden}
+.arch::before{content:"";position:absolute;inset:14px 14px 0;border-radius:999px 999px 18px 18px;background:#f7f5f1}
+.arch img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:94%;width:auto;max-width:none}
+.cup{position:absolute;right:0;bottom:4%;width:42%}
+.steam path{fill:none;stroke:var(--soft);stroke-width:3;stroke-linecap:round;opacity:.55;animation:rise 4s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:1.3s}.steam path:nth-child(3){animation-delay:2.6s}
+@keyframes rise{0%{transform:translateY(10px);opacity:0}40%{opacity:.6}100%{transform:translateY(-16px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.steam path{animation:none}}
+.tag{position:absolute;left:0;top:16%;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;box-shadow:0 10px 30px rgb(40 25 15/.12);font-size:13.5px;max-width:200px}
+.tag b{display:block;font-family:Fraunces,serif;font-size:22px;color:var(--gold)}
+/* built */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px;margin-top:40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px}
+.card{padding:0;overflow:hidden}.card .ph{aspect-ratio:16/10;width:100%;object-fit:cover;display:block}.card .in{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px}
+.card p{margin:0;color:var(--soft)}
+.card .yr{font-size:13px;color:var(--gold);font-weight:600}
+/* passport */
+.pass{background:var(--sagebg)}
+.stamps{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:22px;margin-top:40px}
+.stamp{text-align:center}
+.stamp svg{width:100%;max-width:150px;aspect-ratio:1}
+.stamp .c{font-weight:600;margin-top:6px}.stamp .t{font-size:13.5px;color:var(--soft)}
+.banner{width:100%;height:clamp(200px,32vw,380px);object-fit:cover;display:block;border-radius:22px;margin-top:40px}
+.strip{position:relative;height:clamp(260px,40vw,460px);background:url(img/rows.jpg) center/cover;display:grid;place-items:end start;padding:max(5vw,18px)}
+.strip p{margin:0;background:rgb(29 22 17/.72);color:#f3ece1;font-family:Fraunces,serif;font-size:clamp(22px,3vw,34px);line-height:1.15;padding:16px 22px;border-radius:14px;max-width:18ch}
+/* timeline */
+.tl{list-style:none;margin:40px 0 0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:114px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:40px;padding:0 0 34px;position:relative}
+.tl li::after{content:"";position:absolute;left:108px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--sage)}
+.tl .y{font-family:Fraunces,serif;font-size:22px;text-align:right;white-space:nowrap}
+.tl h3{font-size:19px;margin-bottom:4px}.tl p{margin:0;color:var(--soft);max-width:62ch}
+/* favourites */
+.fav{background:var(--brown);color:#f3ece1}
+.fav .lede{color:#cdbfae}
+.tins{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:18px;margin-top:40px}
+.tin{border-radius:18px;padding:22px;color:#2e211a;display:flex;flex-direction:column;gap:8px;min-height:220px}
+.tin .k{font-size:12.5px;font-weight:600;opacity:.7}
+.tin h3{font-size:22px}.tin p{margin:auto 0 0;font-size:14.5px}
+/* press */
+.press{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.press a{border:1px solid var(--line);border-radius:999px;padding:12px 18px;text-decoration:none;font-size:14.5px;background:var(--card)}
+.press a:hover{border-color:var(--gold)}
+.press a span{color:var(--soft)}
+/* contact */
+.cta{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:start}
+.ways{display:grid;gap:12px}
+.way{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;text-decoration:none;min-height:60px}
+.way:hover{border-color:var(--sage)}
+.way small{display:block;color:var(--soft)}
+footer{border-top:1px solid var(--line);padding:28px max(5vw,18px);font-size:13.5px;color:var(--soft)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.note{font-size:13px;color:var(--soft);margin-top:18px}
+@media(max-width:820px){.hero,.cta{grid-template-columns:minmax(0,1fr)}.stage{max-width:460px;width:100%;margin:0 auto}}
+@media(max-width:600px){.links{display:none}.nav{justify-content:space-between}
+.tl::before{left:7px}.tl li{grid-template-columns:minmax(0,1fr);gap:4px;padding-left:34px}.tl li::after{left:0}.tl .y{text-align:left;font-size:19px}}
+</style>
+</head>
+<body>
+<header><nav class="nav">
+  <a class="mono" href="#top"><span>SJS</span>Sumita</a>
+  <div class="links">
+    <a href="#built">What I've built</a><a href="#origins">Where my tea comes from</a><a href="#story">Timeline</a><a href="#love">Teas I love</a><a href="#contact">Say hello</a>
+  </div>
+  <a class="btn p" href="#contact" style="min-height:40px;padding:0 16px;font-size:14px">Contact</a>
+</nav></header>
+
+<main id="top">
+<section class="band"><div class="wrap hero">
+  <div>
+    <div class="where"><i></i>Kuala Lumpur, Malaysia</div>
+    <h1>Hi, I'm Sumita. I build <em>tea</em> experiences.</h1>
+    <p class="big">Founder of The Tea Republic, one of Malaysia's pioneering specialist tea brands. I trained in architecture, fell for one unforgettable cup, and have been designing with tea ever since.</p>
+    <div class="btns"><a class="btn p" href="#built">See my work</a><a class="btn s" href="#contact">Work with me</a></div>
+  </div>
+  <div class="stage">
+    <div class="arch"><img src="sumita.jpg" alt="Portrait of Sumita J. Singam in a brown suit and sage silk scarf"></div>
+    <div class="tag"><b>Tea, only tea.</b>The only drink on the menu besides water.</div>
+    <svg class="cup" viewBox="0 0 200 200" aria-hidden="true">
+      <g class="steam"><path d="M78 70c-10-14 10-22 0-38"/><path d="M100 66c-10-14 10-22 0-40"/><path d="M122 70c-10-14 10-22 0-38"/></g>
+      <ellipse cx="100" cy="178" rx="82" ry="14" fill="#000" opacity=".12"/>
+      <ellipse cx="100" cy="168" rx="78" ry="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+      <path d="M40 92h120c0 44-22 72-60 72S40 136 40 92z" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+      <path d="M160 102c22-2 26 30 2 34" fill="none" stroke="var(--line)" stroke-width="7" stroke-linecap="round"/>
+      <ellipse cx="100" cy="92" rx="60" ry="11" fill="#b5703a"/>
+      <ellipse cx="92" cy="90" rx="22" ry="3.5" fill="#d99a5e" opacity=".7"/>
+      <path d="M52 112c10 30 30 44 48 46" fill="none" stroke="var(--gold)" stroke-width="2.5" opacity=".7"/>
+      <path d="M150 40c16-6 30 4 30 20-16 4-30-4-30-20z" fill="var(--sage)"/><path d="M150 40c10 6 20 12 30 20" stroke="#5e6b4c" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+</div></section>
+
+<section class="band" id="built" style="padding-top:0"><div class="wrap">
+  <h2>Things I've built</h2>
+  <p class="lede">Everything I make starts with one question: how should this tea feel when someone finally holds it?</p>
+  <div class="grid" id="builtGrid"></div>
+</div></section>
+
+<section class="band pass" id="origins"><div class="wrap">
+  <h2>Where my tea comes from</h2>
+  <p class="lede">I source at trade fairs and import from across the tea world. Every blend is tasted by me first, then by a small circle of trusted tasters, before it ever reaches a tin.</p>
+  <img class="banner" src="img/plantation.jpg" alt="Misty tea gardens on rolling green hills" loading="lazy">
+  <div class="stamps" id="stamps"></div>
+</div></section>
+
+<section class="band" id="story"><div class="wrap">
+  <h2>From blueprints to blends</h2>
+  <p class="lede">The short version of a long love affair with tea.</p>
+  <ol class="tl" id="tl"></ol>
+</div></section>
+
+<div class="strip" role="img" aria-label="Rows of tea bushes on a hillside"><p>Every good cup starts on a hillside.</p></div>
+
+<section class="band fav" id="love"><div class="wrap">
+  <h2>Teas I really love</h2>
+  <p class="lede">Tea doesn't have to be pure leaf to be serious. A few cups that say a lot about how I think.</p>
+  <div class="tins" id="tins"></div>
+</div></section>
+
+<section class="band" style="padding-bottom:0"><div class="wrap">
+  <h2>Featured in</h2>
+  <div class="press" id="press"></div>
+</div></section>
+
+<section class="band" id="contact"><div class="wrap cta">
+  <div>
+    <h2>Let's brew something together</h2>
+    <p class="lede">For corporate gifting, custom-blend collaborations, brand partnerships, talks on building a specialist F&amp;B brand, or simply a good conversation over a pot of tea.</p>
+    <div class="btns" style="margin-top:26px"><a class="btn p" href="https://www.instagram.com/the_tea_republic">Message on Instagram</a></div>
+  </div>
+  <div class="ways">
+    <a class="way" href="https://www.instagram.com/the_tea_republic"><div>The Tea Republic<small>Instagram · @the_tea_republic</small></div><span aria-hidden="true">→</span></a>
+    <a class="way" href="https://www.threads.com/@sumitasingam"><div>Sumita, personally<small>Threads · @sumitasingam</small></div><span aria-hidden="true">→</span></a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Sumita J. Singam · The Tea Republic</span><span>Made with a lot of tea in Kuala Lumpur · Photos: Unsplash</span></div></footer>
+
+<script>
+{
+const leaf='<path d="M10 40C10 18 26 8 44 8c0 22-14 34-34 32z" fill="var(--sage)"/><path d="M10 40C20 28 30 20 44 8" stroke="var(--brown)" stroke-width="2" fill="none"/>';
+const icons={
+ cup:'<rect x="6" y="18" width="30" height="22" rx="8" fill="var(--sage)"/><path d="M36 22c8 0 8 12 0 12" stroke="var(--brown)" stroke-width="3" fill="none"/><path d="M14 6c-3 4 3 6 0 10M24 6c-3 4 3 6 0 10" stroke="var(--gold)" stroke-width="2.5" fill="none" stroke-linecap="round"/>',
+ cart:'<rect x="6" y="10" width="40" height="30" rx="6" fill="var(--sagebg)" stroke="var(--brown)" stroke-width="2"/><path d="M6 18h40" stroke="var(--brown)" stroke-width="2"/><circle cx="12" cy="14" r="1.6" fill="var(--brown)"/><circle cx="17" cy="14" r="1.6" fill="var(--brown)"/><path d="M18 26l6 6 10-10" stroke="var(--gold)" stroke-width="3" fill="none" stroke-linecap="round"/>',
+ tin:'<rect x="12" y="10" width="28" height="34" rx="4" fill="var(--brown)"/><rect x="10" y="6" width="32" height="8" rx="3" fill="var(--gold)"/><circle cx="26" cy="28" r="7" fill="var(--sage)"/>',
+ pyr:'<path d="M26 8L44 42H8z" fill="var(--sagebg)" stroke="var(--brown)" stroke-width="2"/><path d="M26 8v34" stroke="var(--brown)" stroke-width="1.5"/><path d="M26 8V2" stroke="var(--gold)" stroke-width="2"/><rect x="22" y="0" width="8" height="4" fill="var(--gold)"/>',
+ gift:'<rect x="8" y="20" width="36" height="24" rx="3" fill="var(--sage)"/><rect x="6" y="14" width="40" height="8" rx="2" fill="var(--brown)"/><path d="M26 14v30" stroke="var(--gold)" stroke-width="4"/><path d="M26 14c-6-10-16-6-10 0M26 14c6-10 16-6 10 0" stroke="var(--gold)" stroke-width="3" fill="none"/>',
+ star:'<circle cx="26" cy="26" r="20" fill="var(--sagebg)" stroke="var(--brown)" stroke-width="2"/><path d="M26 12l4 9 10 1-7.5 6.5L35 39l-9-5-9 5 2.5-10.5L12 22l10-1z" fill="var(--gold)"/>'
+};
+const built=[
+ ['teapots','The Tea Republic tea house','A calm, modern tea room in Bangsar Shopping Centre that serves tea and only tea, alongside light meals and desserts.','Flagship'],
+ ['spoons','An online tea store','Started as an information site, grew into e-commerce. Today online sales are double the tea house\'s.','Online'],
+ ['spicecup','Signature blends','A house range of loose-leaf blends made for connoisseurs and first-time drinkers alike, best enjoyed without milk or sugar.','The core'],
+ ['dried','Tea Pyramids & canisters','Each blend comes as individual pyramid infusers or loose-leaf canisters, so great tea fits a desk drawer or a dinner party.','Formats'],
+ ['leafbowl','Personalised & corporate gifts','Every order is freshly packed and can carry your theme, message and visuals. Made for clients, teams and celebrations.','Gifting'],
+ ['sunburst','A Hello Kitty collaboration','To mark our 10th anniversary, a limited trio of berry teas with Sanrio\'s Hello Kitty, shipped across Malaysia and Singapore.','Collab']
+];
+document.getElementById('builtGrid').innerHTML=built.map(([i,t,d,y])=>`<article class="card"><img class="ph" src="img/${i}.jpg" alt="" loading="lazy"><div class="in"><div class="yr">${y}</div><h3>${t}</h3><p>${d}</p></div></article>`).join('');
+
+const origins=[['China','Greens & whites'],['Taiwan','Oolongs'],['South Korea','Delicate greens'],['India','Bold black teas'],['Sri Lanka','Ceylon blacks'],['South Africa','Rooibos & honeybush'],['Tanzania','East African blacks'],['Germany','Blending craft'],['Brazil','Mate']];
+document.getElementById('stamps').innerHTML=origins.map(([c,t],n)=>{const r=(n%3-1)*6;return `<div class="stamp"><svg viewBox="0 0 120 120" aria-hidden="true" style="transform:rotate(${r}deg)"><circle cx="60" cy="60" r="54" fill="none" stroke="var(--brown)" stroke-width="2.5" stroke-dasharray="${n%2?'5 4':'0'}"/><circle cx="60" cy="60" r="44" fill="var(--bg)" stroke="var(--sage)" stroke-width="2"/><g transform="translate(36 34)">${leaf}</g><text x="60" y="94" text-anchor="middle" font-family="Fraunces,serif" font-size="${c.length>8?8.5:11}" fill="var(--brown)" letter-spacing="${c.length>8?0:1}">${c.toUpperCase()}</text></svg><div class="c">${c}</div><div class="t">${t}</div></div>`}).join('');
+
+const tl=[
+ ['Early','Trained as a designer','A Diploma in Fine Arts (Interior Design), a degree in Interior Architecture and a Masters in Architecture. I was headed for a career in buildings.'],
+ ['The cup','One pot of tea in Seoul','On holiday I paid far more than I ever had for a cup: a French rooibos with Bourbon vanilla. It changed everything. I still keep the tag from that infuser.'],
+ ['2010','The Tea Republic opens','A specialist tea house came first, at a time when online shopping was still new here and I had no blends of my own yet.'],
+ ['Growing','Teas Malaysia hadn\'t tasted','We introduced many teas that simply weren\'t available locally, with more than 50 on the menu at the tea house.'],
+ ['2016','Fifteen signature blends','Six new teas joined the house range, packed as Tea Pyramids and loose-leaf canisters.'],
+ ['2020','Ten years, and Hello Kitty','We celebrated a decade with a limited-edition Hello Kitty tea trio.'],
+ ['Today','Tea house, online and gifting','Freshly packed, personalised orders across Malaysia and beyond, with online now the bigger half of the business.']
+];
+document.getElementById('tl').innerHTML=tl.map(([y,h,p])=>`<li><div class="y">${y}</div><div><h3>${h}</h3><p>${p}</p></div></li>`).join('');
+
+const tins=[
+ ['#e6c9a0','The one that started it','Rooibos & Bourbon vanilla','A French gourmet blend tasted in Seoul. The reason The Tea Republic exists.'],
+ ['#d9c2b0','Dessert in a cup','Tiramisu Topaz','Rooibos and South American mate with chocolate and tiramisu notes, without the calories.'],
+ ['#b9c6a3','My current favourite','Pure honeybush','Caffeine-free from South Africa, gently sweet on its own.'],
+ ['#a9b8cf','For Earl Grey people','Sapphire Grey','A punchier Earl Grey black tea for those who like their bergamot bold.'],
+ ['#c8b3d6','Fruit-forward black','Violet Valentina','A robust black tea with the flavour of ripe blueberries.']
+];
+document.getElementById('tins').innerHTML=tins.map(([c,k,h,p])=>`<div class="tin" style="background:${c}"><span class="k">${k}</span><h3>${h}</h3><p>${p}</p></div>`).join('');
+
+const press=[
+ ['New Straits Times','From favourite drink to business','https://nst.com.my/amp/news/2017/03/209833/favourite-drink-business'],
+ ['Time Out KL','The best places for tea in KL','https://timeout.com/kuala-lumpur/restaurants-and-cafes/teahouses-in-kl'],
+ ['Lipstiq','Six new blends','https://lipstiq.com/?p=120118'],
+ ['Pamper.my','New tea blends','https://www.pamper.my/news/lifestyle/indulge-yourself-with-new-tea-blends-in-the-tea-republic'],
+ ['Seth Lui','Hello Kitty Tea','https://sethlui.com/hello-kitty-tea-the-tea-republic-singapore-july-2020/'],
+ ['Zula','TTR x Hello Kitty','https://zula.sg/hello-kitty-tea']
+];
+document.getElementById('press').innerHTML=press.map(([n,t,u])=>`<a href="${u}"><b>${n}</b> <span>· ${t}</span></a>`).join('');
+}
+</script>
+</body>
+</html>
